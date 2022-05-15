@@ -8,14 +8,13 @@ const app = express();
   app.use(express.urlencoded({ extended: true }));
   // parse incoming JSON data
   app.use(express.json());
-  app.use(express.static('public'));
+  app.use(express.static('./Develop/public'));
   app.use('/api', apiRoutes);
   app.use('/', htmlRoutes);
 
-// function findByTitle(title, notesArray) {
-//   const results = notesArray.filter(notes => notes.title === title)[0];
-//   return results;
-// }
+  const fs = require('fs');
+  const path = require('path');  
+
 
 app.listen(PORT, () => {
     console.log(`API server now on port ${PORT}!`);

@@ -22,7 +22,7 @@ function createNewNote(body, notesArray) {
       return false;
     }
     return true;
-  }
+  } 
 
 module.exports = {
     createNewNote,
