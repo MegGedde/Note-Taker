@@ -1,12 +1,14 @@
 const fs = require("fs");
 const path = require("path");
+const {v4 : uuidv4} = require('uuid')
 
   
 function createNewNote(body, notesArray) {
     const note = body;
+    body.id = uuidv4();
     notesArray.push(note);
     fs.writeFileSync(
-      path.join(__dirname, '../data/notes.json'),
+      path.join(__dirname, '../db/db.json'),
       JSON.stringify({notes: notesArray}, null, 2)
     );
     return note;
